@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+    height: 100%;
+    width: 100%;
+  }
+  body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-color: #E3EAEB;
+    display: block;
+  }
+html, body { height: 100%; }
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.title {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  margin: 3rem auto;
+  text-align: center;
+  color: #14281f;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: #14281f;
+  max-width: 35rem;
+  margin-bottom: 1rem;
+}

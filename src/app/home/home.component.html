@@ -1,0 +1,162 @@
+<!-- <div class="hero-container">
+    
+  <ngb-carousel>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img src="assets/poze-exterior/IMG_2202.jpg" alt="Angular Carousel 1">
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img src="assets/poze-exterior/IMG_2205.jpg" alt="Angular Carousel 2">
+        </div>
+      </ng-template>
+    
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img src="assets/poze-exterior/IMG_2217.jpg" alt="Angular Carousel 2">
+        </div>
+      </ng-template>
+    
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img src="assets/poze-exterior/IMG_2318.jpg" alt="Angular Carousel 2">
+        </div>
+      </ng-template>
+    
+    </ngb-carousel>
+  
+</div>
+
+<section class="home-section">
+  <form id="register-form" [formGroup]="range" >
+  <div class="home-section-header">
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <div>
+        <h2 class="mat-subheading-2 dark-secondary-text">Alege perioada de rezervare</h2>
+      </div>
+      <mat-form-field appearance="fill">
+        <mat-label>PERIOADA REZERVARE</mat-label>
+        <mat-date-range-input [rangePicker]="picker"  >
+          <input matStartDate placeholder="Start date" formControlName="start" (dateChange)="onChangeEvent($event)">
+          <input matEndDate placeholder="End date" formControlName="end" (dateChange)="onChangeEvent($event)">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+    
+      <div>
+        <p style="text-align: center;"class="mat-body-1" fxFlex.gt-xs="70" fxFlexOffset.gt-xs="15">
+          Va asteptam la casa diana!
+        </p>
+      </div>
+      
+    </div>
+  </div>
+</form>
+  
+  <div class="room-body">
+    <div class="room" *ngFor="let room of showRooms" >
+      <div class="rooms-home-display" fxLayout.xs="column" fxLayoutWrap fxLayoutAlign="center"  >
+      <mat-card class="rooms-suites" fxFlex="50%;" fxFlex.sm="100%">
+        <mat-card-header fxLayout="column" fxLayout="row" fxLayoutAlign="center center">
+          <h2>Camera {{room.id}}</h2>
+        </mat-card-header> 
+        <mat-card-actions fxLayout="column" fxLayout="row" fxLayoutAlign="center center">
+          <button mat-raised-button color="primary" onclick="">Rezerva</button>
+        </mat-card-actions>  
+      </mat-card>
+      
+      </div>
+    </div>
+  </div>
+
+  
+</section> -->
+
+
+
+
+<div class="hero-container">
+    
+  <ngb-carousel>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img src="assets/poze-exterior/IMG_2202.jpg" alt="Angular Carousel 1">
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img src="assets/poze-exterior/IMG_2205.jpg" alt="Angular Carousel 2">
+        </div>
+      </ng-template>
+    
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img src="assets/poze-exterior/IMG_2217.jpg" alt="Angular Carousel 2">
+        </div>
+      </ng-template>
+    
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img src="assets/poze-exterior/IMG_2318.jpg" alt="Angular Carousel 2">
+        </div>
+      </ng-template>
+    
+    </ngb-carousel>
+  
+</div>
+
+<section class="home-section">
+  <form id="register-form" [formGroup]="range" >
+  <div class="home-section-header">
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <div>
+        <h2 class="mat-subheading-2 dark-secondary-text">Alege perioada de rezervare</h2>
+      </div>
+      <mat-form-field appearance="fill">
+        <mat-label>PERIOADA REZERVARE</mat-label>
+        <mat-date-range-input [rangePicker]="picker"  >
+          <input matStartDate placeholder="Start date" formControlName="start" (dateChange)="onChangeEvent($event)">
+          <input matEndDate placeholder="End date" formControlName="end" (dateChange)="onChangeEvent($event)">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+    
+      <div>
+        <p style="text-align: center;"class="mat-body-1" fxFlex.gt-xs="70" fxFlexOffset.gt-xs="15">
+          Va asteptam la casa diana!
+        </p>
+      </div>
+      <div>
+        
+      </div>
+    </div>
+  </div>
+</form>
+  
+  <div class="room-body">
+    <div class="room" *ngFor="let room of showRooms" >
+      <div class="rooms-home-display" fxLayout.xs="column" fxLayoutWrap fxLayoutAlign="center"  >
+      <mat-card class="rooms-suites" fxFlex="50%;" fxFlex.sm="100%">
+        <mat-card-header fxLayout="column" fxLayout="row" fxLayoutAlign="center center">
+          <h2>Camera {{room.id}}</h2>
+        </mat-card-header> 
+        <mat-card-actions fxLayout="column" fxLayout="row" fxLayoutAlign="center center">
+         <button mat-raised-button="let element" class="button" color="primary" type="button" (click)="mode='Book'; openAddReservation() " (click)="submit(room)">Book Now!</button>
+          <div *ngIf="showModal" class="modal">
+            <h1 class="title">s a deschis</h1>
+
+          </div>
+        </mat-card-actions>    
+      </mat-card>
+      
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+</section>

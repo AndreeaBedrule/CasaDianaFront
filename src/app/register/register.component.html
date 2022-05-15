@@ -1,0 +1,51 @@
+<div class="root">
+    <div class="container-main">
+      <div class="container-left">
+      </div>
+      <form id="container-right" [formGroup]="createAccountForm">
+        <h1 class="title">
+          Register
+        </h1>
+        <p class="subtitle">
+          Be a part of us!
+        </p>
+        <div class="input-fields-grid">
+          <div class="input-field">
+            <label class="label-field" for="firstName">First name</label>
+            <input class="input" formControlName="firstName" id="firstName" type="text" placeholder="First name">
+          </div>
+          <div class="input-field">
+            <label class="label-field" for="lastName">Last name</label>
+            <input class="input" formControlName="lastName" id="lastName" type="text" placeholder="Last name">
+          </div>
+          <div class="input-field">
+            <label class="label-field" for="email">Email</label>
+            <input class="input" formControlName="email" id="email" type="text" placeholder="E-mail">
+          </div>
+          <div class="input-field">
+            <label class="label-field" for="phoneNumber">Phone Number</label>
+            <input class="input" formControlName="phoneNumber" id="phoneNumber" type="text" placeholder="Phone number">
+          </div>
+          <div class="grid-item2 input-field">
+            <label class="label-field" for="password">Password</label>
+            <input class="input" formControlName="password" id="password" type="password" placeholder="Password">
+          </div>
+          <div class="grid-item2 input-field">
+            <label class="label-field" for="confirmPassword">Confirm password</label>
+            <input class="input" formControlName="confirmPassword" id="confirmPassword" type="password" placeholder="Confirm password">
+          </div>
+        </div>
+        <button class="create-account-button" type="button" (click)="createAccount()">
+          Create Account
+        </button>
+      </form>
+    </div>
+  </div>
+  <div *ngIf="showModal==true" class="modal-container">
+    <div class="custom-item-modal">
+      <div class="success-message">
+        Account was created successfully! <br> Please check your email and click the activation link in order to activate it!
+      </div>
+      <button class="button" (click)="showModal=false">Ok</button>
+    </div>
+  </div>

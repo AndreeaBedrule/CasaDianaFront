@@ -1,0 +1,148 @@
+<div class="container">
+  <div class="container-table">
+    <h1 class="title">Rooms</h1>
+    <p class="subtitle">Manage your rooms </p>
+    <table mat-table [dataSource]="showRooms" class="table mat-elevation-z8">
+      <ng-container matColumnDef="number">
+        <th mat-header-cell *matHeaderCellDef>Number</th>
+        <td mat-cell *matCellDef="let element">{{element.number}}</td>
+      </ng-container>
+      <ng-container matColumnDef="floor">
+        <th mat-header-cell *matHeaderCellDef>Floor</th>
+        <td mat-cell *matCellDef="let element">{{element.floor}}</td>
+      </ng-container>
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>Price</th>
+        <td mat-cell *matCellDef="let element">{{element.price}}</td>
+      </ng-container>
+      <ng-container matColumnDef="numberOfPersons">
+        <th mat-header-cell *matHeaderCellDef>NoP</th>
+        <td mat-cell *matCellDef="let element">{{element.numberOfPersons}}</td>
+      </ng-container>
+      <ng-container matColumnDef="smoking">
+        <th mat-header-cell *matHeaderCellDef>Smoking</th>
+        <td mat-cell *matCellDef="let element">{{element.smoking}}</td>
+      </ng-container>
+      <ng-container matColumnDef="bath">
+        <th mat-header-cell *matHeaderCellDef>Bath</th>
+        <td mat-cell *matCellDef="let element">{{element.bath}}</td>
+      </ng-container>
+      <ng-container matColumnDef="hairDryer">
+        <th mat-header-cell *matHeaderCellDef>Hair Dryer</th>
+        <td mat-cell *matCellDef="let element">{{element.hairDryer}}</td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button class="default-btn" (click)="mode='Edit'; openEditRoom(element)" title="Edit">
+            <mat-icon aria-hidden="false" aria-label="Edit">edit</mat-icon>
+          </button>
+          <button mat-icon-button class="delete-btn" (click)="removeRooms(element)" title="Remove">
+            <mat-icon aria-hidden="false" aria-label="Delete">delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>  
+    <button class="button" type="button" (click)="mode='Add'; openAddRoom()">Add room</button>
+    <div *ngIf="showModal" class="modal">
+      <h1 class="title">{{getModalTitle()}}</h1>
+      <form id="register-form" [formGroup]="form">
+        <div class="input-fields-grid">
+
+          <div class="input-field">
+            <label class="label-field" for="number">Number</label>
+            <input class="input" formControlName="number" id="number" type="text" placeholder="Number">
+            <div *ngIf="form.get('number')!.invalid && form.get('number')!.errors &&
+              (form.get('number')!.dirty || form.get('number')!.touched)">
+              <small class="text-danger" *ngIf="form.get('number')!.hasError('required')">
+                {{requiredMessage}}
+              </small>
+            </div>
+          </div>
+
+          <div class="input-field">
+            <label class="label-field" for="floor">Floor</label>
+            <input class="input" formControlName="floor" id="floor" type="text" placeholder="Floor">
+            <div *ngIf="form.get('floor')!.invalid && form.get('floor')!.errors &&
+              (form.get('floor')!.dirty || form.get('floor')!.touched)">
+              <small class="text-danger" *ngIf="form.get('floor')!.hasError('required')">
+                {{requiredMessage}}
+              </small>
+            </div>
+          </div>
+
+          <div class="input-field">
+            <label class="label-field" for="price">Price</label>
+            <input class="input" formControlName="price" id="price" type="text" placeholder="Price">
+            <div *ngIf="form.get('price')!.invalid && form.get('price')!.errors &&
+              (form.get('price')!.dirty || form.get('price')!.touched)">
+              <small class="text-danger" *ngIf="form.get('price')!.hasError('required')">
+                {{requiredMessage}}
+              </small>
+            </div>
+          </div>
+
+          <div class="input-field">
+            <label class="label-field" for="numberOfPersons">Number of persons</label>
+            <input class="input" formControlName="numberOfPersons" id="numberOfPersons" type="text" placeholder="Number of persons">
+            <div *ngIf="form.get('numberOfPersons')!.invalid && form.get('numberOfPersons')!.errors &&
+              (form.get('numberOfPersons')!.dirty || form.get('numberOfPersons')!.touched)">
+              <small class="text-danger" *ngIf="form.get('numberOfPersons')!.hasError('required')">
+                {{requiredMessage}}
+              </small>
+            </div>
+          </div>
+
+          <div class="input-field">
+            <label class="label-field" for="smoking">Smoking</label>
+            <input class="input" formControlName="smoking" id="smoking" type="text" placeholder="Smoking">
+            <div *ngIf="form.get('smoking')!.invalid && form.get('smoking')!.errors &&
+              (form.get('smoking')!.dirty || form.get('smoking')!.touched)">
+              <small class="text-danger" *ngIf="form.get('smoking')!.hasError('required')">
+                {{requiredMessage}}
+              </small>
+            </div>
+          </div>
+
+          <div class="input-field">
+            <label class="label-field" for="hairDryer">Hair dryer</label>
+            <input class="input" formControlName="hairDryer" id="hairDryer" type="text" placeholder="Hair dryer">
+            <div *ngIf="form.get('hairDryer')!.invalid && form.get('hairDryer')!.errors &&
+              (form.get('hairDryer')!.dirty || form.get('hairDryer')!.touched)">
+              <small class="text-danger" *ngIf="form.get('hairDryer')!.hasError('required')">
+                {{requiredMessage}}
+              </small>
+            </div>
+          </div>
+
+          <div class="input-field">
+            <label class="label-field" for="bath">Bath</label>
+            <input class="input" formControlName="bath" id="bath" type="text" placeholder="bath">
+            <div *ngIf="form.get('bath')!.invalid && form.get('bath')!.errors &&
+              (form.get('bath')!.dirty || form.get('bath')!.touched)">
+              <small class="text-danger" *ngIf="form.get('bath')!.hasError('required')">
+                {{requiredMessage}}
+              </small>
+            </div>
+          </div>
+
+
+
+        </div>
+
+      </form>
+      <div class="buttons">
+        <button class="cancel-btn" type="button" (click)="cancelModal()">
+          Cancel
+        </button>
+        <button class="submit-btn" type="button" (click)="submit()" [disabled]="!form.valid">
+          {{mode}}
+        </button>
+      </div>
+
+    </div>
+  </div>
+ </div>

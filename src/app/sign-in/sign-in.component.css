@@ -1,0 +1,93 @@
+.root {
+  background-color:rgba(0, 0, 0, 0.763);
+  background-size:cover;
+  display: flex;
+  justify-content: center;
+  
+}
+  
+  #left-container {
+    flex-grow: 1.5;
+    flex-basis: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 7rem;
+    
+  }
+  
+  #sign-in-panel {
+    height: 38rem;
+    width: 30rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  #sign-in-form {
+    height: 34rem;
+    width: 100%;
+    background: #E3EAEB;
+    border-radius: 0.8rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+
+  
+  #title-text {
+    margin-top: 7rem;
+    margin-bottom: 3rem;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+  
+  .form-control {
+    height: 1.25rem;
+    width: 20rem;
+    margin: 0.75rem;
+    border: 0.15rem solid black;
+    padding: 0.8rem;
+  }
+  
+  .submit-button {
+    height: 3.1rem;
+    width: 21.85rem;
+    margin: 0.75rem;
+    border: 0.15rem solid black;
+    background: black;
+    color: white;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 0.8125rem;
+    line-height: 1.125rem;
+  }
+  
+  .submit-button:hover {
+    background: #333333;
+    cursor: pointer;
+  }
+  
+  .submit-button:active {
+    background: #666666;
+  }
+  
+  #to-sign-up-text {
+    width: 21.85rem;
+    margin: 2.5rem;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.8125rem;
+    line-height: 1.125rem;
+  }
+  
+  
+  
+
+  

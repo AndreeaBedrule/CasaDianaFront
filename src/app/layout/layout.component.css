@@ -1,0 +1,19 @@
+/* .layout-container {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+  
+  .content {
+    overflow: auto;
+    height: 100%;
+    margin-left: 0;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .sidebar-active {
+    margin-left: 4rem;
+  }
+   */

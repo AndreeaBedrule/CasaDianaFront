@@ -1,0 +1,112 @@
+.header {
+    background-color: rgba(0, 0, 0, 0.763);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+    position:absolute;
+    z-index:10;
+    width:100%;   
+}
+
+.title {
+    font-family: Book Antiqua;
+    color: #e7e5e9; 
+    margin-left: 3%;
+    font-weight: bold;
+    cursor:pointer;
+}
+
+
+.menu:hover {
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+}
+
+.icon-left {
+    height: 30px;
+    margin-right: 2rem;
+    filter: invert(95%);
+}
+
+.icon {
+    height: 30px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    filter: invert(95%);
+    
+}
+
+.dropdown-toggle {
+    padding-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    margin-right: 10px;
+    padding-bottom: 10px;
+}
+
+.dropdown-toggle:hover {
+    background-color:rgba(255, 255, 255, 0.763);
+    cursor: pointer;
+}
+
+.name {
+    padding-top: 3px;
+    color: #833cca;
+    font-size: 22px;
+}
+
+.dropdown-menu {
+    background-color: rgb(255, 255, 255);
+    height: 40px;
+    font-size: 22px;
+    margin-right: 10px;
+    text-align: center;
+    padding-top: 13px;
+    width: 13rem;
+    margin-left: 60px;
+}
+
+.dropdown-menu:hover {
+    cursor: pointer;
+    background-color: rgb(235, 227, 227);
+}
+
+.icon-left {
+    height: 30px;
+    margin-right: 2rem;
+    filter: invert(95%);
+}
+
+.icon {
+    height: 2rem;
+    filter: invert(95%);
+    margin-right: 0.5rem;
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 2rem;
+    text-decoration: none;
+}
+
+.logo:hover, .menu-item:hover {
+    filter: brightness(150%);
+}
+
+.menu-text {
+    font-size: 1.4rem;
+    color: #e7e5e9;
+}

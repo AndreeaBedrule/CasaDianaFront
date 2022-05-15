@@ -1,0 +1,155 @@
+.hero-container {
+    background: url(/assets/poze-exterior/IMG_2318.jpg)center center no-repeat;
+    background-size: cover;
+  }
+  
+  
+  .header-container {
+    height: 100vh; 
+    padding: 60px 20px;
+    max-width: 608px;
+  }
+
+  
+  .home-section {
+    position: relative;
+    padding: 100px 20px;
+    transform: transale3d(0,0,0);
+    transition: top .3s cubic-bezier(.4,0,.2,1);
+    text-align: center;
+  }
+  .home-section .mat-subheading-3 {
+    text-transform: uppercase;
+  }
+  
+  .rooms-home-display {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 15px;
+  }
+  
+  .rooms-home-display mat-card-header h2 {
+    color: white;
+    font-size: 34.54px;	letter-spacing: 0.25px;	line-height: 43px;
+    color: rgba(0,0,0,0.87);
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  
+  .rooms-home-display mat-card-header {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 34px;
+    height: 53px;
+    width: 100%;
+    background: linear-gradient(
+      125deg,#fff8e1 0,
+      rgba(255, 248, 225,.6)100%);
+  }
+  
+  .rooms-home-display mat-card-actions {
+    position: absolute;
+    top: 75%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .rooms-home-display mat-card {
+    height: 587px;
+    position: relative;
+    text-align: center;
+    margin: 1%;
+  }
+  
+  
+  .rooms-suites {
+    background: url(/assets/poze-exterior/IMG_2205.jpg)center center no-repeat;
+    background-size: cover;
+    height: calc(100vh - 500px);
+  }
+  .beach-houses {
+    background: url(/assets/poze-exterior/IMG_2205.jpg)center center no-repeat;
+    background-size: cover;
+    height: calc(100vh - 500px);
+  }
+  
+  button {
+      min-height: 40px;
+      min-width: 141px;
+      
+  }
+  
+  ngb-carousel img {
+    /* width:  100% !important;
+    max-height:min-content;*/
+    
+    width:100%; 
+    height: 100vh; 
+}
+
+.carousel-inner {
+    overflow: visible;
+}
+.carousel-item {
+    display: flex !important;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.2s ease-in-out, visibility 1.2s;
+    z-index: -1;
+}
+.carousel-item.active{
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+.carousel-control-prev {
+     z-index: 20;
+}
+
+.carousel-control-next {
+     z-index: 20;
+}
+.carousel-indicators{
+    z-index: 20;
+}
+
+.example-form-field {
+    margin: 0 8px 16px 0;
+  }
+
+.room-body
+{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.room{
+   width: 50%;
+  /* line-height: 100px;
+  margin: 10px;   */
+}
+
+
+
+
+.modal {
+  display: block;
+  position: absolute; 
+  z-index:2;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid #000000;
+  border-radius: 20px;
+  align-self: center;
+  align-content: center;
+  top: 5rem;
+  
+}
+

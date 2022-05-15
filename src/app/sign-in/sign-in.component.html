@@ -1,0 +1,30 @@
+<div class="root">
+    <div id="left-container" class="container">
+      <main id="sign-in-panel">
+        <img >
+        <form id="sign-in-form" [formGroup]="form" (submit)="submit()">
+          <h1 id="title-text">Hello there! 👋🏻</h1>
+          <input id="emailInput"
+                 class="form-control"
+                 type="email"
+                 required
+                 formControlName="email"
+                 placeholder="email"/>
+          <input id="passwordInput"
+                 class="form-control"
+                 type="password"
+                 required
+                 formControlName="password"
+                 minlength="5"
+                 placeholder="password"/>
+          <button class="submit-button" type="submit">SIGN IN</button>
+          <p id="to-sign-up-text"> Don't have an account? <a routerLink="/register">Create now!</a></p>
+        </form>
+      </main>
+
+
+    </div>
+  </div>
+  
+  
+  
