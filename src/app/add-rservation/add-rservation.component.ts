@@ -20,6 +20,7 @@ export class AddRservationComponent implements OnInit {
   userId: number | undefined;
   checkIn: FormControl = new FormControl;
   checkOut: FormControl = new  FormControl;
+  totalPrice:number | undefined
 
   start: FormControl = new FormControl();
   end: FormControl = new FormControl();
@@ -50,10 +51,10 @@ export class AddRservationComponent implements OnInit {
       roomId: this.roomId,
       reservationId: this.reservationId,
       userId: this.userId,
-      checkIn:this.newStart,
+      checkIn: this.newStart + 'T21:00:00',
       checkOut: this.newEnd,
-
-
+      canceled: false,
+      totalPrice: this.totalPrice
     } as IReservation
 
     if (this.mode === 'Book') {
@@ -64,8 +65,10 @@ export class AddRservationComponent implements OnInit {
   }
 
   private addReservations(reservation: IReservation): void{
+  
     this.reservation.addReservation(reservation, this.sessionService.getToken()!).subscribe(
       reservation => {
+
        this.booked = this.booked.concat([reservation]);
        this.cancelModal();
       }

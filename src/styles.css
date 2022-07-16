@@ -30,3 +30,85 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   max-width: 35rem;
   margin-bottom: 1rem;
 }
+
+.pre-modal {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: rgba(128, 128, 128, 0.5);
+  z-index: 4;
+}
+
+ .my-modal {
+  display: block;
+  position: fixed; 
+  z-index:5;
+  background-color: white;
+  border: 2px solid #14281f;
+  border-radius: 20px;
+  align-self: center;
+  align-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem 2rem;
+  opacity: 100% !important;
+  /* margin-top: 8rem;*/ 
+} 
+
+.cancel-btn {
+  background-color: white;
+  color: #a50000;
+  border: 2px solid #a50000;
+  width: 150px;
+  height: 35px;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background-color: #a50000;
+  color: white;
+}
+
+.submit-btn {
+  background: #1f4034;
+  border: 2px solid #1f4034;
+  color: white;
+  width: 150px;
+  height: 35px;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
+  flex-flow: row;
+  margin: 2rem auto;
+}
+
+.submit-btn:disabled,
+.submit-btn[disabled],
+.button:disabled,
+.button[disabled] {
+border: 0.15rem solid #949494;
+background: #949494;
+cursor: default;
+}
+
+.error-snackbar {
+  text-align: center;
+  background-color: #a50000;
+  color: white;
+}

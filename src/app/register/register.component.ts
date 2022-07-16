@@ -1,5 +1,6 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import {  Router } from '@angular/router';
 import { IUser } from '../models/user';
 import { UserServiceService } from '../services/user-service.service';
@@ -13,10 +14,7 @@ import { UserServiceService } from '../services/user-service.service';
 export class RegisterComponent implements OnInit {
 
   email: FormControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern(
-      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    ),
+    Validators.required
   ]);
   password: FormControl = new FormControl('', [Validators.required]);
   confirmPassword: FormControl = new FormControl('', [Validators.required]);
@@ -36,30 +34,29 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private userService: UserServiceService,
+    private router: Router,
+    private snackbar: MatSnackBar
   ) {}
 
   ngOnInit() {}
 
   createAccount(): void {
-    if(!this.createAccountForm.valid){
-      alert('Fields are invalid!');
+    if (this.password.value !== this.confirmPassword.value) {
+      this.snackbar.open("Parolele trebuie sa fie aceleasi", '', {
+        duration: 3000,
+        panelClass: ['error-snackbar']
+      });
+      
       return;
     }
 
-    if(this.password.value !== this.confirmPassword.value)
-    {
-      alert('Passords do not match!');
-      return;
-    }
     if(this.createAccountForm.valid){
       this.userService.createAccount(this.firstName.value, this.lastName.value, this.email.value, this.phoneNumber.value, this.password.value).subscribe(
         response => {
           this.createAccountForm.reset();
-          alert('Registration succesfully completed!');
+          //alert('Registration succesfully completed!');
+          this.router.navigate(["/login"])
         } ,
-        error => {
-          alert(console.log(error));
-        }
         
       );
     }

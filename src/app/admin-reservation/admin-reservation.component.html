@@ -1,0 +1,94 @@
+<div class="container">
+    <div class="container-table">
+      <h1 class="title">Reservations</h1>
+      <p class="subtitle">Manage your reservations </p>
+      <table mat-table [dataSource]="showReservations" class="table mat-elevation-z8">
+        <ng-container matColumnDef="phoneNumber">
+          <th mat-header-cell *matHeaderCellDef>Numar de telefon</th>
+          <td mat-cell *matCellDef="let element">{{element.user!.phoneNumber}}</td>
+        </ng-container>
+        <ng-container matColumnDef="roomNumber">
+          <th mat-header-cell *matHeaderCellDef>Room Number</th>
+          <td mat-cell *matCellDef="let element">{{element.room!.number}}</td>
+        </ng-container>
+        <ng-container matColumnDef="checkIn">
+          <th mat-header-cell *matHeaderCellDef>Check_In</th>
+          <td mat-cell *matCellDef="let element">{{formatDate(element.checkIn)}}</td>
+        </ng-container>
+        <ng-container matColumnDef="checkOut">
+          <th mat-header-cell *matHeaderCellDef>Check_Out</th>
+          <td mat-cell *matCellDef="let element">{{formatDate(element.checkOut)}}</td>
+        </ng-container>
+        <ng-container matColumnDef="totalPrice">
+          <th mat-header-cell *matHeaderCellDef>Total Price</th>
+          <td mat-cell *matCellDef="let element">{{element.totalPrice}}</td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button class="default-btn" (click)="mode='Edit'; openEditReservation(element)" title="Edit">
+              <mat-icon aria-hidden="false" aria-label="Edit">edit</mat-icon>
+            </button>
+            <button mat-icon-button class="delete-btn" (click)="removeReservation(element)" title="Remove">
+              <mat-icon aria-hidden="false" aria-label="Delete">delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table> 
+      
+    </div>
+   </div>
+
+
+   <div *ngIf="showModal" class="my-modal">
+    <h1 class="title">{{getModalTitle()}}</h1>
+    <form id="register-form" [formGroup]="form">
+      <div class="input-fields-grid">
+        <div class="input-field">
+          <label class="label-field" for="roomNumber">Room Number</label>
+          <input class="input" formControlName="roomNumber" id="roomNumber" type="text" placeholder="RoomNumber">
+          <div *ngIf="form.get('roomNumber')!.invalid && form.get('roomNumber')!.errors &&
+            (form.get('roomNumber')!.dirty || form.get('roomNumber')!.touched)">
+            <small class="text-danger" *ngIf="form.get('roomNumber')!.hasError('required')">
+              {{requiredMessage}}
+            </small>
+          </div>
+        </div>
+  
+        <div class="input-field">
+          <label class="label-field" for="checkIn">Check-In</label>
+          <input class="input" formControlName="checkIn" id="checkIn" type="text" placeholder="Check-In">
+          <div *ngIf="form.get('checkIn')!.invalid && form.get('checkIn')!.errors &&
+            (form.get('checkIn')!.dirty || form.get('checkIn')!.touched)">
+            <small class="text-danger" *ngIf="form.get('checkIn')!.hasError('required')">
+              {{requiredMessage}}
+            </small>
+          </div>
+        </div>
+
+        <div class="input-field">
+          <label class="label-field" for="checkOut">Check-Out</label>
+          <input class="input" formControlName="checkOut" id="checkOut" type="text" placeholder="Check-Out">
+          <div *ngIf="form.get('checkOut')!.invalid && form.get('checkOut')!.errors &&
+            (form.get('checkOut')!.dirty || form.get('checkOut')!.touched)">
+            <small class="text-danger" *ngIf="form.get('checkOut')!.hasError('required')">
+              {{requiredMessage}}
+            </small>
+          </div>
+        </div>
+      </div>
+  
+    </form>
+    <div class="buttons">
+      <button class="cancel-btn" type="button" (click)="cancelModal()">
+        Cancel
+      </button>
+      <button class="submit-btn" type="button" (click)="submit()" [disabled]="!form.valid">
+        {{mode}}
+      </button>
+    </div>
+  
+  </div>
+  

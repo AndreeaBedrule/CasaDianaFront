@@ -65,16 +65,17 @@
     position: relative;
     text-align: center;
     margin: 1%;
+    
   }
   
   
   .rooms-suites {
-    background: url(/assets/poze-exterior/IMG_2205.jpg)center center no-repeat;
+    background: url(/assets/poze-interior/IMG_2258.jpg)center center no-repeat;
     background-size: cover;
     height: calc(100vh - 500px);
   }
   .beach-houses {
-    background: url(/assets/poze-exterior/IMG_2205.jpg)center center no-repeat;
+    background: url(/assets/poze-interior/IMG_2258.jpg)center center no-repeat;
     background-size: cover;
     height: calc(100vh - 500px);
   }
@@ -140,7 +141,7 @@
 
 
 
-.modal {
+/* .modal {
   display: block;
   position: absolute; 
   z-index:2;
@@ -151,5 +152,5 @@
   align-content: center;
   top: 5rem;
   
-}
+} */
 

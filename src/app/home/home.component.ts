@@ -17,23 +17,27 @@ export class HomeComponent implements OnInit {
   showRooms: IRoom[] = [] as IRoom[];
   showAvailableRooms: IRoom[] = [] as IRoom[];
 
+  userHasSelectedPeriod: boolean = false;
+
   start: FormControl = new FormControl();
   end: FormControl = new FormControl();
-
+  minDate: Date | any;
+  
   range = new FormGroup({
     start: this.start,
     end: this.end,
+    
   });
 
   constructor(
     private adminRoomService: AdminRoomService,
     private sessionService: SessionService,
     private reservation: ReservationService,
-  
 
   ){}
   
   ngOnInit(): void {
+    this.minDate = new Date();
     this.getRooms()
   }
   onSlideChange(): void {
@@ -59,7 +63,8 @@ export class HomeComponent implements OnInit {
       new Date(this.end.value).toLocaleDateString('en-EN').split('/').join('.'))
       .subscribe(
         showAvailableRooms => {
-          this.showRooms = showAvailableRooms
+          this.showRooms = showAvailableRooms;
+          this.userHasSelectedPeriod = true;
         }
     )
   } 
@@ -70,7 +75,9 @@ export class HomeComponent implements OnInit {
     }
   }
 
-
+  isRoleUser() {
+    return this.sessionService.getLoggedUserRole() === 'User';
+  }
 
   showModal: boolean = false;
   booked: IReservation[] = [] as IReservation[];
@@ -82,22 +89,21 @@ export class HomeComponent implements OnInit {
   checkIn: FormControl = new FormControl;
   checkOut: FormControl = new  FormControl;
 
+  selectedRoom: IRoom | undefined;
 
-  submit(room: IRoom): void {
-    this.roomId= room.id;
-    this.userId = 16;
-    // console.log(new Date(this.start.value).toLocaleDateString('en-EN').split('/').join('.'));
+
+  submit(): void {
     const reservation: IReservation = {
-      roomId: this.roomId,
-      userId: this.userId!,
+      roomId: this.selectedRoom!.id,
+      userId: this.sessionService.getLoggedUserId()!,
       checkIn: this.formatReservationDate(new Date(this.start.value)),
       checkOut: this.formatReservationDate(new Date(this.end.value)),
+      canceled: false,
     } as IReservation
 
     if (this.mode === 'Book') {
       this.addReservations(reservation);
     }  else {
-      //this.editRoom(room);
     } 
   }
 
@@ -118,8 +124,9 @@ cancelModal(): void {
  }
 }
 
-openAddReservation(): void {
+openAddReservation(room: IRoom): void {
   this.mode = 'Book';
+  this.selectedRoom = room;
   this.openModal();
 }
 openModal(): void {

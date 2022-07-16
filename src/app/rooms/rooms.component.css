@@ -5,7 +5,9 @@
   display: flex;
   flex-flow: column;
   align-items: center;
+  padding: 5rem;;
 }
+
 
 .container-table {
   display: flex;
@@ -21,6 +23,7 @@ html {
   height: 100%;
   width: 100%;
 }
+
 body {
   height: 100%;
   width: 100%;
@@ -47,12 +50,12 @@ app-root {
   line-height: 2.5rem;
   margin: 3rem auto;
   text-align: center;
-  color: #14281f;
+  color: rgba(0, 0, 0, 0.763);
 }
 
 .subtitle {
   font-size: 1.125rem;
-  color: #14281f;
+  color: rgba(0, 0, 0, 0.763);
   max-width: 35rem;
   margin-bottom: 1rem;
 }
@@ -83,8 +86,8 @@ app-root {
   height: 3rem;
   width: 15rem;
   margin: 2rem 0.75rem 0.75rem 2.1rem;
-  border: 0.15rem solid rgba(77, 61, 115, 0.763);
-  background: rgba(77, 61, 115, 0.763);
+  border: 0.15rem solid rgba(0, 0, 0, 0.763);
+  background: rgba(0, 0, 0, 0.763);
   color: white;
   font-style: normal;
   font-weight: 700;
@@ -96,11 +99,11 @@ app-root {
 .button:hover,
 .submit-btn:hover {
   cursor: pointer;
-  background: rgba(77, 61, 115, 0.763);
+  background: rgba(0, 0, 0, 0.763);
 }
 
 .mat-header-cell {
-  background-color: rgba(77, 61, 115, 0.763);
+  background-color: rgba(0, 0, 0, 0.763);
   color: #E3EAEB;
   font-weight: bold;
   font-size: 18px;
@@ -124,64 +127,17 @@ th.mat-header-cell, .mat-cell {
   padding: 0 1.3rem !important;
 }
 
-.modal {
+/* .modal {
   display: block;
-  position: absolute; 
+  position: absolute;
   z-index:2;
   background-color: rgb(255, 255, 255);
   border: 2px solid #000000;
   border-radius: 20px;
   align-self: center;
-  align-content: center;
-  top: 5rem;
-  
-}
+  align-content: center; 
 
-.cancel-btn {
-  background-color: white;
-  color: #a50000;
-  border: 2px solid #a50000;
-  width: 150px;
-  height: 35px;
-  border-radius: 5px;
-  font-size: 20px;
-  font-weight: bold;
-  margin-right: 1rem;
-  cursor: pointer;
-}
-
-.cancel-btn:hover {
-  background-color: #a50000;
-  color: white;
-}
-
-.submit-btn {
-  background: #1f4034;
-  border: 2px solid #1f4034;
-  color: white;
-  width: 150px;
-  height: 35px;
-  border-radius: 5px;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  align-self: flex-end;
-  flex-flow: row;
-  margin: 2rem auto;
-}
-
-.submit-btn:disabled,
-.submit-btn[disabled],
-.button:disabled,
-.button[disabled] {
-border: 0.15rem solid #949494;
-background: #949494;
-cursor: default;
-}
+} */
 
 .input-select {
   border: 0.15rem solid #14281f;
@@ -229,3 +185,19 @@ cursor: default;
 .centered-cell {
   text-align: center;
 }
+
+/* .my-modal {
+  display: block;
+  position: fixed; 
+  background-color: white;
+  border: 2px solid #14281f;
+  border-radius: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem 2rem;
+  opacity: 100% !important;
+   margin-top: 8rem; 
+
+} */
+

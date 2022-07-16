@@ -1,0 +1,49 @@
+<!-- <div class="delete-account"  >
+  
+  <a href>Delete account</a>
+</div> -->
+<div class="container">
+    <div class="container-table">
+    
+      <h1 class="title">Your Reservations</h1>
+      <table mat-table [dataSource]="showReservations" class="table mat-elevation-z8">
+        <ng-container matColumnDef="numarCamera">
+          <th mat-header-cell *matHeaderCellDef>Room Number</th>
+          <td mat-cell *matCellDef="let element">{{element.room!.number}}</td>
+        </ng-container>
+        <ng-container matColumnDef="checkIn">
+          <th mat-header-cell *matHeaderCellDef>Check_In</th>
+          <td mat-cell *matCellDef="let element">{{formatDate(element.checkIn)}}</td>
+        </ng-container>
+        <ng-container matColumnDef="checkOut">
+          <th mat-header-cell *matHeaderCellDef>Check_Out</th>
+          <td mat-cell *matCellDef="let element">{{formatDate(element.checkOut)}}</td>
+        </ng-container>
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef>Price</th>
+          <td mat-cell *matCellDef="let element">{{element.totalPrice}}</td>
+        </ng-container>
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let element">{{element.canceled ? 'Anulat' : 'NeAnulat'}}</td>
+        </ng-container>
+        <ng-container matColumnDef="canceled">
+        <th mat-header-cell *matHeaderCellDef>Canceled</th>
+        <td mat-cell *matCellDef="let element">
+          <button *ngIf="element.canceled == false && !dezactivate(element.checkIn) " class="delete-btn" (click)="cancelReservation(element)" title="CancelReservation">
+            <mat-icon aria-hidden="false" aria-label="Cancel">cancel</mat-icon>
+          </button>
+          <button *ngIf="dezactivate(element.checkIn) " (click)="cancelReservation(element)" [disabled]="dezactivate(element.checkIn)" title="CancelReservation">
+            <mat-icon aria-hidden="false" aria-label="Cancel">cancel</mat-icon>
+          </button>
+        </td>
+     
+      </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table> 
+    </div>
+   </div>
+
+   
