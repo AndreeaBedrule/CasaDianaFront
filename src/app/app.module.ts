@@ -24,6 +24,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { AdminReservationComponent } from './admin-reservation/admin-reservation.component';
+import { AuthenticationGuard } from './authentication-guard/authentication-guard';
+import { RoleAuthGuard } from './authentication-guard/role-authentication-guard';
+import { UserDetailComponent } from './user-detail/user-detail.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NetworkInterceptor } from './http-interceptors/network-interceptor';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +42,9 @@ import {MatNativeDateModule} from '@angular/material/core';
     SignInComponent,
     HomeComponent,
     AddRservationComponent,
+    AdminReservationComponent,
+    UserDetailComponent,
+    AboutComponent,
     
   ],
   imports: [
@@ -55,12 +65,18 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSnackBarModule,
   ],
   providers: [
     HttpClient,
     DatePipe,
-    
-    
+    AuthenticationGuard,
+    RoleAuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: NetworkInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

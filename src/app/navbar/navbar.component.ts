@@ -34,5 +34,8 @@ export class NavbarComponent implements OnInit {
     this.eventEmitterService.getEmitter('onLogout')?.emit()
     this.sessionService.logout();
   }
+  isRoleUser() {
+    return this.sessionService.getLoggedUserRole() === 'User';
+  }
 
 }

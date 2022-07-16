@@ -30,9 +30,7 @@ export class RoomsComponent implements OnInit {
   number: FormControl = new FormControl('', [Validators.required]);
   price: FormControl = new FormControl('', [Validators.required]);
   numberOfPersons: FormControl = new FormControl('', [Validators.required]);
-  smoking: FormControl = new FormControl('', [Validators.required]);
-  hairDryer: FormControl = new FormControl('', [Validators.required]);
-  bath: FormControl = new FormControl('', [Validators.required]);
+  
 
 
   form: FormGroup = new FormGroup({
@@ -40,13 +38,10 @@ export class RoomsComponent implements OnInit {
     number: this.number,
     price: this.price,
     numberOfPersons: this.numberOfPersons,
-    smoking: this.smoking,
-    hairDryer:this.hairDryer,
-    bath: this.bath,
 
   });
 
-  displayedColumns: string[] = ['number', 'floor','price', 'numberOfPersons', 'smoking', 'hairDryer', 'bath','actions'];
+  displayedColumns: string[] = ['number', 'floor','price', 'numberOfPersons', 'actions'];
 
   constructor(
     private adminRoomService: AdminRoomService,
@@ -85,19 +80,17 @@ export class RoomsComponent implements OnInit {
     }
 
     const room: IRoom = {
-      id: this.editId,
       floor: this.floor.value,
       number: this.number.value,
       price: this.price.value,
       numberOfPersons: this.numberOfPersons.value,
-      hairDryer:this.hairDryer.value,
-      smoking:this.smoking.value,
-      bath:this.bath.value, 
+   
     } as IRoom
 
     if (this.mode === 'Add') {
       this.addRooms(room);
     }  else {
+      room.id = this.editId;
       this.editRoom(room);
     } 
   }
@@ -108,7 +101,6 @@ export class RoomsComponent implements OnInit {
           this.showRooms = this.showRooms.concat([room]);
           this.cancelModal();
         },
-        error => alert(error.message)
       );
     }
 
@@ -121,7 +113,6 @@ export class RoomsComponent implements OnInit {
           
           this.cancelModal();
         },
-        error => alert(error.message)
       );
     }
 
@@ -133,9 +124,7 @@ export class RoomsComponent implements OnInit {
       this.form.get('price')?.setValue(room.price);
       this.form.get('number')?.setValue(room.number);
       this.form.get('numberOfPersons')?.setValue(room.numberOfPersons);
-      this.form.get('smoking')?.setValue(room.smoking);
-      this.form.get('bath')?.setValue(room.bath);
-      this.form.get('hairDrayer')?.setValue(room.hairDryer);
+  
   
       this.openModal();  
     }
@@ -149,22 +138,11 @@ export class RoomsComponent implements OnInit {
       if (confirm('Are you sure you want to delete this item?')) {
         this.adminRoomService.removeRoom(room.id!, this.sessionService.getToken()!).subscribe(
           response => this.showRooms = this.showRooms.filter(x => x != room),
-          error => alert(console.log("nu merge"))
         );
       }
     }
   
     getModalTitle(): string {
       return this.mode + ' Room';
-    }
+    }  
 }
-
-
-  
-  
-
- 
-  
-
-
-

@@ -5,7 +5,7 @@ export interface IRoom {
     numberOfPersons: number,
     price: number,
     petFirendly: boolean,
-    smoking: boolean,
-    hairDryer: boolean,
-    bath: boolean
+    /*  smoking: boolean,
+     hairDryer: boolean,
+     bath: boolean */
 }

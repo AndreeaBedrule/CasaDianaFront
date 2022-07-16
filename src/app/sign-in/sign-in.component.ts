@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { EventEmitterService } from '../services/event-emitter.service';
 import { SessionService } from '../services/session.service';
@@ -20,19 +21,19 @@ export class SignInComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private eventEmitterService: EventEmitterService,
+    private snackbar: MatSnackBar,
   ) {
   }
 
   ngOnInit(): void {
+
     if (this.sessionService.activeSession())
       this.toHome();
+
+    
   }
 
   submit(): void {
-    if (!this.form.valid) {
-      alert('Form is invalid');
-      return;
-    }
     this.sessionService.signIn(this.form.value.email, this.form.value.password).subscribe(
       response => {
         this.sessionService.saveToken(response);
@@ -40,7 +41,6 @@ export class SignInComponent implements OnInit {
         this.toHome(); 
       },
       error => {
-        alert(error.message);
         this.form.reset();
         
       });

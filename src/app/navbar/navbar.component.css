@@ -100,13 +100,18 @@
     align-items: center;
     margin-right: 2rem;
     text-decoration: none;
+    font-family:'Times New Roman', Times, serif;
+    color:white;
+    font-size: large;
+    
 }
 
-.logo:hover, .menu-item:hover {
+/* .logo:hover, .menu-item:hover {
     filter: brightness(150%);
-}
+} */
 
 .menu-text {
     font-size: 1.4rem;
     color: #e7e5e9;
 }
+

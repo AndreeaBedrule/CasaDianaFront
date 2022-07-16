@@ -63,6 +63,10 @@ export class SessionService {
     return this.getDecodedToken().first_name + " " + this.getDecodedToken().last_name;
   }
 
+  getLoggedUserRole(): string | null {
+    return this.getDecodedToken().role
+  }
+
   /**
    * Gets the status of the session (if it is active or not)
    */
